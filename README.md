@@ -28,14 +28,14 @@
 
 お手元の環境で動かすための手順です。
 
-# リポジトリのクローン
+# 1. リポジトリのクローン
 git clone [https://github.com/watanabeyoshinobu/yunokokochi-admin.git](https://github.com/watanabeyoshinobu/yunokokochi-admin.git)
 
-# ディレクトリへ移動
+# 2. ディレクトリへ移動
 cd yunokokochi-admin
 
-# パッケージのインストール
+# 3. パッケージのインストール
 npm install
 
-# 開発サーバーの起動
+# 4. 開発サーバーの起動
 npm run dev
