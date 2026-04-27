@@ -20,7 +20,6 @@ export default function Sidebar() {
           </li>
           
           <li className="hover:text-gray-300 cursor-pointer">💬 クチコミ管理</li>
-          <li className="hover:text-gray-300 cursor-pointer">⚙️ 設定</li>
         </ul>
       </nav>
     </aside> 
