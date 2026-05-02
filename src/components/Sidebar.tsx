@@ -14,12 +14,17 @@ export default function Sidebar() {
           </li>
 
           <li>
-            <Link href="/facilities" className="hover:text-gray-300 cursor-pointer block">
-              ♨️ 施設情報管理
+            <Link href="/users" className="hover:text-gray-300 cursor-pointer block">
+              👥 ユーザー管理
             </Link>
           </li>
           
-          <li className="hover:text-gray-300 cursor-pointer">💬 クチコミ管理</li>
+          <li>
+            <Link href="/blogs" className="hover:text-gray-300 cursor-pointer block">
+              💬 クチコミ管理
+            </Link>
+          </li>
+
         </ul>
       </nav>
     </aside> 
