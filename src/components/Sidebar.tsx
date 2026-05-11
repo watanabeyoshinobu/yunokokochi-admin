@@ -8,20 +8,32 @@ export default function Sidebar() {
         <ul className="space-y-4">
 
           <li>
-            <Link href="/" className="hover:text-gray-300 cursor-pointer block">
+            <Link href="/" className="hover:text-gray-300 cursor-pointer block mt-5">
               📊 ダッシュボード
             </Link>
           </li>
 
           <li>
-            <Link href="/users" className="hover:text-gray-300 cursor-pointer block">
+            <Link href="/users" className="hover:text-gray-300 cursor-pointer block mt-5">
               👥 ユーザー管理
             </Link>
           </li>
           
           <li>
-            <Link href="/blogs" className="hover:text-gray-300 cursor-pointer block">
+            <Link href="/blogs" className="hover:text-gray-300 cursor-pointer block mt-5">
               💬 クチコミ管理
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/comments" className="hover:text-gray-300 cursor-pointer block mt-5">
+              📝 コメント管理
+            </Link>
+          </li>
+
+          <li>
+            <Link href="/tweets" className="hover:text-gray-300 cursor-pointer block mt-5">
+              🐦 つぶやき管理
             </Link>
           </li>
 
