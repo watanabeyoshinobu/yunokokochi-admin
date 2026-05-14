@@ -62,7 +62,11 @@ export default function Users() {
               <div className="w-24 h-24 rounded-full overflow-hidden bg-gray-50 mb-6 shadow-sm flex-shrink-0 border border-gray-100">
                 {user.profile_image && user.profile_image.url ? (
                   <img
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${user.profile_image.url}`}
+                    src={
+                      user.profile_image.url.startsWith("http")
+                        ? user.profile_image.url
+                        : `${process.env.NEXT_PUBLIC_API_URL}${user.profile_image.url}`
+                    }
                     alt="profile"
                     className="w-full h-full object-cover"
                   />
