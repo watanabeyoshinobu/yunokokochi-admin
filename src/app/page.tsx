@@ -8,13 +8,13 @@ export default function Dashboard() {
     today_favorites_count: 0,
     total_blogs_count: 0,
     total_users_count: 0,
-    latest_blogs: [] as any[],    // 復活
+    latest_blogs: [] as any[],
     latest_comments: [] as any[],
     latest_tweets: [] as any[]
   });
   const [loading, setLoading] = useState(true);
 
-  // 口コミ用のページネーションState（復活）
+  // 口コミ用のページネーションState
   const [blogPage, setBlogPage] = useState(1);
   const [totalBlogPages, setTotalBlogPages] = useState(1);
 
@@ -35,12 +35,12 @@ export default function Dashboard() {
           today_favorites_count: dashboardData.today_favorites_count || 0,
           total_blogs_count: dashboardData.total_blogs_count || 0,
           total_users_count: dashboardData.total_users_count || 0,
-          latest_blogs: dashboardData.latest_blogs || [],       // 復活
+          latest_blogs: dashboardData.latest_blogs || [],
           latest_comments: dashboardData.latest_comments || [],
           latest_tweets: dashboardData.latest_tweets || []
         });
         
-        if (dashboardData.blog_meta) setTotalBlogPages(dashboardData.blog_meta.total_pages); // 復活
+        if (dashboardData.blog_meta) setTotalBlogPages(dashboardData.blog_meta.total_pages);
         if (dashboardData.comment_meta) setTotalCommentPages(dashboardData.comment_meta.total_pages);
         if (dashboardData.tweet_meta) setTotalTweetPages(dashboardData.tweet_meta.total_pages);
         
@@ -68,7 +68,7 @@ export default function Dashboard() {
           <p className="text-gray-500">データを読み込み中...</p>
         ) : (
           <>
-            {/* ====== 1段目：3つの統計カード ====== */}
+
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
               <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
                 <p className="text-sm text-gray-500 mb-2">本日のいいね獲得数</p>
@@ -90,10 +90,10 @@ export default function Dashboard() {
               </div>
             </div>
 
-            {/* ====== 2段目：最新の口コミ（横幅いっぱい） ====== */}
+
             <div className="bg-white p-8 rounded-lg shadow-sm border border-gray-100 mb-8 flex flex-col">
               <h3 className="text-lg font-bold text-gray-800 mb-6 flex items-center gap-2">
-                <span>💬</span> 最新の口コミ
+                <span>💬</span> 最新の湯巡りの綴り
               </h3>
               <div className="space-y-6 flex-grow">
                 {data.latest_blogs.length > 0 ? (
@@ -105,10 +105,10 @@ export default function Dashboard() {
                     </div>
                   ))
                 ) : (
-                  <p className="text-gray-500 text-sm">まだクチコミが投稿されていません。</p>
+                  <p className="text-gray-500 text-sm">まだ投稿されていません。</p>
                 )}
               </div>
-              {/* 口コミ用ページネーション */}
+
               {totalBlogPages > 1 && (
                 <div className="flex justify-center items-center gap-4 mt-8 pt-4 border-t border-gray-100">
                   <button onClick={() => setBlogPage(blogPage - 1)} disabled={blogPage === 1} className="px-3 py-1 bg-white border border-gray-300 rounded text-sm hover:bg-gray-50 disabled:opacity-50">前へ</button>
@@ -118,7 +118,6 @@ export default function Dashboard() {
               )}
             </div>
 
-            {/* ====== 3段目：コメントとつぶやきを並べて表示 ====== */}
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
               
               {/* 左側：最新のコメント（ブログに対するコメント） */}
@@ -139,7 +138,7 @@ export default function Dashboard() {
                     <p className="text-gray-500 text-sm">まだコメントが投稿されていません。</p>
                   )}
                 </div>
-                {/* コメント用ページネーション */}
+
                 {totalCommentPages > 1 && (
                   <div className="flex justify-center items-center gap-4 mt-8 pt-4 border-t border-gray-100">
                     <button onClick={() => setCommentPage(commentPage - 1)} disabled={commentPage === 1} className="px-3 py-1 bg-white border border-gray-300 rounded text-sm hover:bg-gray-50 disabled:opacity-50">前へ</button>
@@ -170,7 +169,7 @@ export default function Dashboard() {
                     <p className="text-gray-500 text-sm">まだつぶやきが投稿されていません。</p>
                   )}
                 </div>
-                {/* つぶやき用ページネーション */}
+
                 {totalTweetPages > 1 && (
                   <div className="flex justify-center items-center gap-4 mt-8 pt-4 border-t border-gray-100">
                     <button onClick={() => setTweetPage(tweetPage - 1)} disabled={tweetPage === 1} className="px-3 py-1 bg-white border border-gray-300 rounded text-sm hover:bg-gray-50 disabled:opacity-50">前へ</button>

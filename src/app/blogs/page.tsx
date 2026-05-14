@@ -52,14 +52,18 @@ export default function Blogs() {
       <Sidebar />
 
       <main className="flex-1 p-8">
-        <h2 className="text-2xl font-bold text-gray-800 mb-6">💬 クチコミ管理</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-6">💬 湯巡りの綴り 管理</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">    
           {blogs.map((blog) => (
             <div key={blog.id} className="bg-white rounded-lg shadow-md flex flex-col overflow-hidden">
               {blog.image && blog.image.url ? (
                 <div className="w-full h-48">
                   <img
-                    src={`${process.env.NEXT_PUBLIC_API_URL}${blog.image.url}`}
+                    src={
+                      blog.image.url.startsWith("http")
+                        ? blog.image.url
+                        : `${process.env.NEXT_PUBLIC_API_URL}${blog.image.url}`
+                    }
                     alt={blog.title}
                     className="w-full h-full object-cover"
                   />
@@ -130,7 +134,7 @@ export default function Blogs() {
         )}
 
         {blogs.length === 0 && (
-          <p className="text-gray-500 text-center py-8">クチコミ情報を読み込み中、または投稿がありません。</p>
+          <p className="text-gray-500 text-center py-8">情報を読み込み中、または投稿がありません。</p>
         )}
 
       </main>

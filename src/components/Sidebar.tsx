@@ -21,7 +21,7 @@ export default function Sidebar() {
           
           <li>
             <Link href="/blogs" className="hover:text-gray-300 cursor-pointer block mt-5">
-              💬 クチコミ管理
+              💬 湯巡りの綴り 管理
             </Link>
           </li>
 
